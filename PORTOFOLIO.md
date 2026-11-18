@@ -1,196 +1,213 @@
-# PORTOFOLIO KONTRIBUSI ANGGOTA 2
-## Proyek Sistem Antrean Berbasis Linux
+# PORTOFOLIO INDIVIDU
+## Proyek Sistem Antrean Linux – Kelompok 4 (5B)
 
 ### 1. Identitas
 
 - **Nama:** Jennar Iqlima Rakhman
 - **NIM:** 2510512176
-- **Kelompok:** Kelompok 4 - Projek 5B
-- **Judul Proyek:** Sistem Antrean Berbasis Linux
-- **Peran:** Anggota 2 – Pengembangan Antrean, Worker, File Lock, dan Integrasi Sistem Status.
-
-Pekerjaan Anggota 2 dalam proyek ini dilaksanakan secara kolaboratif oleh dua orang. Kami bekerja sama dalam proses pengembangan, implementasi, pengujian, dokumentasi, dan integrasi sistem antrean.
+- **Kelompok:** 4
+- **Anggota:** 2B
+- **Judul Proyek:** Sistem Antrean Linux
 
 ### 2. Asal Proyek
 
-Proyek ini merupakan bagian dari tugas kelompok pengembangan Sistem Antrean Berbasis Linux.
+Proyek ini merupakan proyek kelompok yang dikembangkan menggunakan Bash Script pada lingkungan Linux melalui WSL Ubuntu.
 
-**Repository utama GitHub:**
+- **Repository utama:** https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
+- **Nama seluruh anggota kelompok**:
+  1. Fathimah Asrining Nurcahya Pertiwi - 2510512199
+  2. Jennar Iqlima Rakhman - 2510512176
+  3. Made Dwi Putra - 2510512204
+  4. Aghna Biwalaki Chodori - 2510512177
+  5. Muhammad Haikal - 2510512185
+  6. Muhammad Rijal Akbar - 2510512173
 
-https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
-
-**Anggota kelompok:**
-1. Fathimah Asrining Nurcahya Pertiwi - 2510512199
-2. Jennar Iqlima Rakhman - 2510512176
-3. Made Dwi Putra - 2510512204
-4. Aghna Biwalaki Chodori - 2510512177
-5. Muhammad Haikal - 2510512185
-6. Muhammad Rijal Akbar - 2510512173
+Repository digunakan sebagai tempat penyimpanan source code, dokumentasi, dan bukti pengerjaan proyek secara bersama-sama.
 
 ### 3. Kontribusi Pribadi
 
-Pada bagian Anggota 2, saya terlibat dalam pengembangan dan integrasi beberapa komponen sistem antrean.
+Pada proyek Sistem Antrean Linux, saya bertanggung jawab mengerjakan fitur **Exclusive Lock menggunakan perintah `flock` untuk mencegah worker berjalan secara bersamaan**.
 
 Kontribusi yang saya kerjakan meliputi:
 
-**A. Implementasi FIFO**
+1. Menambahkan mekanisme exclusive lock pada file `scripts/worker.sh`.
+2. Menggunakan `flock -n` untuk memastikan hanya satu worker yang dapat menjalankan proses pada satu waktu.
+3. Menambahkan pemeriksaan apabila terdapat worker lain yang sedang memegang lock.
+4. Menambahkan pencatatan PID worker ke dalam file lock.
+5. Menambahkan pesan penolakan ketika worker kedua mencoba berjalan saat lock sedang digunakan.
+6. Menambahkan pencatatan aktivitas worker ke dalam file log.
+7. Menggunakan `trap` untuk menghapus file lock ketika proses worker berakhir.
+8. Melakukan pengujian terhadap skenario positif dan negatif.
 
-Mengembangkan mekanisme antrean menggunakan metode First In, First Out (FIFO), sehingga pekerjaan diproses berdasarkan urutan masuk.
+**Berkas yang dikerjakan:**
+- `scripts/worker.sh`
+- `evidence/jennar-positif.txt`
+- `evidence/jennar-negatif.txt`
 
-**B. Pengembangan Worker**
+Bagian pengambilan antrean secara berurutan (FIFO) pada script worker merupakan kontribusi AMMY (Anggota 2A), sedangkan mekanisme Exclusive Lock merupakan kontribusi saya.
 
-Mengembangkan `worker.sh` untuk mengambil pekerjaan dari antrean, menjalankan pekerjaan, dan menghapus pekerjaan dari antrean setelah berhasil diproses.
+<img width="950" height="307" alt="image" src="https://github.com/user-attachments/assets/47143ac6-7b5d-4d43-b4cc-37d1aa17d55d" />
 
-**C. Implementasi File Locking**
-
-Menggunakan perintah `flock` untuk mengatur akses terhadap file antrean dan mencegah beberapa worker memproses antrean secara bersamaan.
-
-**D. Script Penambahan Antrean**
-
-Mengembangkan `tambah_antrean.sh` untuk menambahkan pekerjaan ke antrean serta memberikan ID unik pada setiap pekerjaan.
-
-**E. Integrasi Sistem Status**
-
-Mengintegrasikan worker dengan `monitoring/status.sh` agar setiap pekerjaan memiliki status:
-- `waiting`
-- `running`
-- `success`
-- `failed`
-
-**F. Pengujian dan Dokumentasi**
-
-Melakukan pengujian FIFO, keberhasilan pekerjaan, kegagalan pekerjaan, dan retry. Hasil pengujian juga didokumentasikan dalam `anggota2/dokumentasi/hasil-pengujian.md`.
-
-**File utama yang dikerjakan:**
-- `anggota2/tambah_antrean.sh`
-- `anggota2/worker.sh`
-- `anggota2/pekerjaan_dummy.sh`
-- `anggota2/antrean.txt`
-- `monitoring/status.sh`
-- `anggota2/dokumentasi/hasil-pengujian.md`
+Keterangan: Source code `worker.sh` yang menunjukkan implementasi Exclusive Lock menggunakan `flock`.
 
 ### 4. Bukti Kontribusi
 
-Kontribusi dapat diperiksa melalui repository GitHub kelompok berikut:
+Bukti kontribusi dapat dilihat melalui repository GitHub dan riwayat commit berikut.
+
+**Repository:**
 
 https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
 
-Bukti kontribusi yang dapat ditampilkan meliputi:
+**Commit pribadi:**
 
-1. Branch pengembangan: `anggota-2-integrasi-status`.
-2. Commit integrasi: `cf2284b` – Integrate worker queue with job status system.
-3. Pull Request integrasi worker dan sistem status yang telah di-merge ke branch `main`.
-4. File implementasi worker, penambahan antrean, dan sistem status.
-5. Dokumentasi hasil pengujian pada `anggota2/dokumentasi/hasil-pengujian.md`.
+- Hash commit: `65be5fa`
+- Pesan commit: `feat(jennar): tambah flock exclusive lock pencegah worker ganda`
+- Berkas yang diubah: `scripts/worker.sh`
+- Berkas bukti pengujian: `evidence/jennar-positif.txt` dan `evidence/jennar-negatif.txt`
 
-Bukti visual yang disertakan:
-- Screenshot kode `worker.sh`.
-  <img width="807" height="722" alt="WhatsApp Image 2026-11-18 at 08 53 26" src="https://github.com/user-attachments/assets/c838d494-db27-418c-8a8c-84d42f4ea99a" />
-  <img width="884" height="719" alt="WhatsApp Image 2026-11-18 at 08 53 46" src="https://github.com/user-attachments/assets/eddde3bc-4c9d-448b-bbb8-f6cdaeef2110" />
-  <img width="883" height="710" alt="WhatsApp Image 2026-11-18 at 08 54 00" src="https://github.com/user-attachments/assets/08c9397b-6dcc-4743-876f-0832a89a6cc9" />
+Commit dilakukan dengan perintah:
 
-- Screenshot kode `tambah_antrean.sh`.
-  <img width="878" height="562" alt="WhatsApp Image 2026-11-18 at 08 54 58" src="https://github.com/user-attachments/assets/a2b4b4f2-8f3e-4fb7-98b5-dd3c866a8aed" />
-  <img width="824" height="569" alt="WhatsApp Image 2026-11-18 at 08 55 10" src="https://github.com/user-attachments/assets/a5081a0b-404e-4ac5-96b1-630a294c086d" />
+```bash
+git add scripts/worker.sh evidence/jennar-*.txt
+git commit -m "feat(jennar): tambah flock exclusive lock pencegah worker ganda"
+git pull --rebase origin main
+git push origin main
+```
 
-- Screenshot kode `monitoring/status.sh`.
-  <img width="815" height="704" alt="WhatsApp Image 2026-11-18 at 08 55 58" src="https://github.com/user-attachments/assets/adb06a1c-1f6f-47a1-9881-a5237e69eb15" />
-  <img width="800" height="731" alt="WhatsApp Image 2026-11-18 at 08 56 18" src="https://github.com/user-attachments/assets/9551b5b5-7d6a-44cb-b64c-3a2017f3b06b" />
-<img width="775" height="751" alt="WhatsApp Image 2026-11-18 at 08 56 56" src="https://github.com/user-attachments/assets/5c4b55b4-59c4-4c30-a336-0c598a47cb98" />
-<img width="697" height="443" alt="WhatsApp Image 2026-11-18 at 08 57 09" src="https://github.com/user-attachments/assets/1b50e2b4-523a-4204-b30a-232b99244dd0" />
+Proses push berhasil dilakukan ke branch `main` pada repository kelompok.
 
-- Screenshot pengujian FIFO.
-  <img width="876" height="564" alt="WhatsApp Image 2026-11-18 at 08 58 03" src="https://github.com/user-attachments/assets/dd49e108-1413-4482-879d-41f523a911ba" />
+**Tautan commit:**
 
-- Screenshot status pekerjaan `success` dan `failed`.
-  <img width="849" height="171" alt="WhatsApp Image 2026-11-18 at 08 58 49" src="https://github.com/user-attachments/assets/bc270f43-3f75-485f-9ca8-8a45881addea" />
+https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux/commit/65be5fa
 
-- Screenshot pengujian retry.
-  <img width="910" height="729" alt="WhatsApp Image 2026-11-18 at 08 59 45" src="https://github.com/user-attachments/assets/8cb55910-b0b6-4604-9502-91c77302aa08" />
-<img width="916" height="459" alt="WhatsApp Image 2026-11-18 at 09 00 02" src="https://github.com/user-attachments/assets/97d66aa3-de7b-4827-aac6-9f07dac252ea" />
+<img width="775" height="86" alt="image" src="https://github.com/user-attachments/assets/eebbf779-6392-4cae-bed9-90ec650d3aea" />
 
-- Screenshot Pull Request GitHub yang menunjukkan status merged.
-  <img width="917" height="617" alt="WhatsApp Image 2026-11-18 at 09 01 11" src="https://github.com/user-attachments/assets/def57934-5788-491c-833f-5ef905a3479f" />
-<img width="814" height="698" alt="WhatsApp Image 2026-11-18 at 09 02 10" src="https://github.com/user-attachments/assets/efed0662-fc69-4973-acdf-7457bbd8ac6c" />
+Keterangan: Riwayat commit GitHub yang menunjukkan kontribusi pribadi dengan hash commit `65be5fa`.
 
-### 5. Skenario Individu
+### 5. Skenario Pengujian Individu
 
-**Tujuan:**
+Pengujian dilakukan untuk memastikan mekanisme Exclusive Lock dapat mencegah dua worker berjalan secara bersamaan.
 
-Mengembangkan sistem antrean pekerjaan yang dapat memproses pekerjaan secara berurutan, menghindari pemrosesan bersamaan oleh worker, serta memantau status setiap pekerjaan.
+#### A. Skenario Positif dan Negatif
 
-**Langkah Pengujian:**
+**Tujuan:** Memastikan worker dapat dijalankan ketika belum ada worker lain yang menggunakan lock dan Memastikan worker kedua ditolak ketika worker lain sedang memegang lock.
 
-1. Menambahkan tiga pekerjaan, yaitu Pekerjaan A, Pekerjaan B, dan Pekerjaan C.
-2. Memastikan ketiga pekerjaan masuk ke antrean dengan status `waiting`.
-3. Menjalankan worker untuk memproses pekerjaan.
-4. Memastikan urutan pemrosesan sesuai FIFO.
-5. Memeriksa perubahan status pekerjaan menjadi `running` dan `success`.
-6. Melakukan simulasi kegagalan dengan exit code 7.
-7. Memastikan pekerjaan yang gagal tetap berada di antrean.
-8. Memulihkan script pekerjaan dan menjalankan worker kembali untuk menguji retry.
+**Langkah pengujian:**
 
-**Hasil Pengujian:**
+1. Masuk ke direktori proyek.
+2. Melakukan reset lingkungan antrean menggunakan `bash scripts/reset_env.sh`.
+3. Memasukkan pekerjaan ke antrean menggunakan perintah:
 
-- Pekerjaan A, B, dan C berhasil diproses sesuai urutan.
-- Status pekerjaan berhasil berubah dari `waiting` menjadi `running`, kemudian `success`.
-- Pengujian kegagalan menghasilkan status `failed` dengan exit code 7.
-- Pekerjaan yang gagal tetap tersimpan di antrean.
-- Setelah dilakukan retry, pekerjaan berhasil diproses dan status akhirnya menjadi `success` dengan exit code 0.
-- Antrean menjadi kosong setelah semua pekerjaan berhasil diselesaikan.
+```bash
+bash scripts/submit_job.sh hitung_prima.sh 4
+```
+
+4. Menjalankan worker pertama menggunakan perintah:
+
+```bash
+bash scripts/worker.sh > evidence/jennar-positif.txt 2>&1 &
+```
+
+5. Menyimpan PID proses worker pertama dan menunggu proses berjalan.
+6. Memeriksa hasil pengujian melalui file `evidence/jennar-positif.txt`.
+
+**Langkah pengujian:**
+
+1. Menjalankan worker pertama di background.
+2. Menyimpan PID worker pertama.
+3. Memberikan jeda menggunakan perintah `sleep 1`.
+4. Menjalankan worker kedua ketika worker pertama sedang berjalan.
+5. Menyimpan exit code worker kedua.
+6. Memeriksa hasil melalui file `evidence/jennar-negatif.txt`.
+
+Perintah yang digunakan:
+
+```bash
+W1_PID=$!
+sleep 1
+bash scripts/worker.sh > evidence/jennar-negatif.txt 2>&1
+echo "exit worker kedua: $?" >> evidence/jennar-negatif.txt
+wait $W1_PID
+```
+
+**Hasil pengujian:**
+
+Worker kedua ditolak karena mekanisme Exclusive Lock mendeteksi adanya worker lain yang sedang menggunakan lock.
+
+Hasil terminal menunjukkan:
+
+```text
+[LOCKED] Worker lain (PID: ) sedang berjalan! Worker kedua ditolak.
+exit worker kedua: 99
+```
 
 **Verifikasi:**
 
-Hasil pengujian diverifikasi melalui output terminal, file status pekerjaan pada `data/jobs/`, log worker, dan dokumentasi hasil pengujian.
+Exit code `99` menunjukkan bahwa worker kedua keluar melalui mekanisme penolakan yang telah dibuat.
+
+Catatan: PID worker aktif pada keluaran pengujian tersebut terlihat kosong sehingga bagian identifikasi PID masih perlu diperiksa kembali.
+
+<img width="882" height="232" alt="image" src="https://github.com/user-attachments/assets/5c110b0a-fe34-453f-ad45-b06f199d2b11" />
 
 ### 6. Analisis Konsep Sistem Operasi
 
-Pekerjaan yang saya lakukan berkaitan dengan beberapa konsep Sistem Operasi yang dipelajari dalam perkuliahan.
+Kontribusi saya dalam pengembangan fitur Exclusive Lock memiliki hubungan dengan beberapa konsep Sistem Operasi, yaitu:
 
-**A. Manajemen Proses**
+**a. Process Management**
 
-Worker menjalankan pekerjaan sebagai proses di Linux. Setiap pekerjaan dieksekusi melalui script Bash dan memiliki proses yang dapat diidentifikasi menggunakan PID.
+Worker merupakan proses yang menjalankan pekerjaan dalam sistem antrean. Ketika terdapat lebih dari satu worker, sistem perlu mengatur proses agar tidak terjadi pelaksanaan pekerjaan secara bersamaan yang tidak diinginkan.
 
-**B. Sinkronisasi dan Mutual Exclusion**
+**b. Mutual Exclusion**
 
-Penggunaan `flock` merupakan penerapan konsep sinkronisasi untuk mengatur akses terhadap sumber daya bersama. Lock membantu mencegah worker lain mengakses dan memproses antrean secara bersamaan.
+Exclusive Lock menerapkan konsep mutual exclusion, yaitu mekanisme untuk memastikan hanya satu proses yang dapat menggunakan sumber daya tertentu pada satu waktu. Dalam proyek ini, `flock` digunakan untuk mengatur akses worker terhadap lock file.
 
-**C. Manajemen Antrean**
+**c. Concurrency**
 
-Metode FIFO menunjukkan pengelolaan antrean berdasarkan urutan kedatangan pekerjaan. Pekerjaan yang masuk lebih awal diproses lebih dahulu.
+Concurrency berkaitan dengan kondisi ketika beberapa proses dapat berjalan dalam rentang waktu yang berdekatan. Penggunaan Exclusive Lock membantu mengendalikan akses beberapa worker sehingga tidak semuanya menjalankan tugas secara bersamaan.
 
-**D. Status Proses dan Exit Status**
+**d. Process Synchronization**
 
-Sistem status digunakan untuk memantau tahapan pekerjaan. Exit status digunakan untuk membedakan pekerjaan yang berhasil dan gagal dijalankan.
+Penggunaan `flock -n` membantu melakukan sinkronisasi antarproses dengan memberikan akses kepada satu worker dan menolak worker lain ketika lock sedang digunakan.
 
-**E. Manajemen File dan Hak Akses**
+**e. File Management**
 
-Penggunaan file antrean, file lock, serta pengaturan permission dengan `chmod` dan `umask` berkaitan dengan pengelolaan file dan keamanan akses pada sistem Linux.
+Lock file digunakan sebagai media pengaturan akses proses. Selain itu, file log digunakan untuk mencatat aktivitas worker, seperti lock berhasil diperoleh dan percobaan worker yang ditolak.
 
 ### 7. Kendala dan Penyelesaian
 
-Selama pengerjaan proyek, saya mengalami kendala pada perangkat pribadi. Laptop saya belum dapat digunakan untuk menjalankan lingkungan Linux yang diperlukan dalam pengembangan dan pengujian Bash Shell Script.
+Selama pengerjaan proyek Sistem Antrean Linux, saya mengalami kendala pada perangkat laptop pribadi yang tidak dapat digunakan untuk menjalankan lingkungan Linux dan melakukan pengerjaan proyek dengan baik.
 
-Untuk mengatasi kendala tersebut, saya menggunakan laptop milik teman yang dapat mengakses Google Cloud Shell sebagai lingkungan kerja Linux.
+Oleh karena itu, saya menggunakan laptop teman untuk melanjutkan pengerjaan proyek. Dengan menggunakan perangkat tersebut, saya dapat mengakses lingkungan WSL Ubuntu, menjalankan perintah Linux, mengedit Bash Script, melakukan pengujian, serta mengunggah hasil pengerjaan ke repository GitHub kelompok.
 
-Dengan cara tersebut, proses pengembangan script, pengujian worker, pemeriksaan antrean, pengelolaan Git, dan integrasi ke GitHub tetap dapat dilakukan.
+Meskipun terdapat kendala pada perangkat pribadi, pengerjaan kontribusi tetap dapat diselesaikan, yaitu implementasi fitur Exclusive Lock pada `scripts/worker.sh`, pengujian positif dan negatif, serta proses commit dan push ke branch `main`.
 
-Kendala lainnya adalah proses integrasi antara worker dan sistem status. Pada awalnya, worker hanya memproses nama pekerjaan dan belum memperbarui status pekerjaan secara otomatis.
+**Penyelesaian kendala:** Menggunakan laptop teman sebagai perangkat alternatif agar proses pengerjaan proyek dapat tetap dilaksanakan.
 
-Penyelesaian dilakukan dengan menambahkan ID unik pada setiap pekerjaan dan menghubungkan script worker dengan `monitoring/status.sh`. Setelah integrasi, perubahan status pekerjaan dapat dicatat secara otomatis.
+Keterangan: Dokumentasi lingkungan WSL Ubuntu atau proses pengerjaan proyek pada perangkat yang digunakan.
 
 ### 8. Refleksi
 
-Melalui pengerjaan proyek ini, saya memperoleh pemahaman dan pengalaman dalam:
+Melalui pengerjaan proyek ini, saya memperoleh pemahaman dan pengalaman dalam menggunakan Bash Script untuk mengelola proses pada sistem Linux.
 
-- Menggunakan Bash Shell Script untuk mengembangkan sistem antrean.
-- Memahami penerapan metode FIFO.
-- Menggunakan worker untuk menjalankan pekerjaan secara otomatis.
-- Memahami konsep sinkronisasi dan mutual exclusion melalui `flock`.
-- Mengelola status proses menggunakan exit status.
-- Menggunakan Git dan GitHub untuk kolaborasi serta integrasi kode.
-- Melakukan pengujian terhadap kondisi berhasil, gagal, dan retry.
+Hal yang sudah saya pelajari dan kuasai meliputi:
 
-Hal yang masih perlu saya pelajari lebih lanjut adalah pengelolaan proses secara lebih kompleks, penanganan kegagalan worker ketika proses terhenti secara tiba-tiba, serta pengembangan sistem monitoring yang lebih lengkap.
+1. Menggunakan perintah Bash untuk menjalankan dan mengelola proses.
+2. Menggunakan `flock` untuk menerapkan mekanisme Exclusive Lock.
+3. Memahami konsep dasar mutual exclusion dan process synchronization.
+4. Menjalankan proses menggunakan background execution.
+5. Menggunakan PID untuk mengidentifikasi proses.
+6. Menggunakan `trap` untuk menangani proses ketika berakhir.
+7. Melakukan pengujian positif dan negatif.
+8. Menggunakan Git untuk melakukan commit dan push hasil pengerjaan ke repository kelompok.
 
-Secara keseluruhan, proyek ini memberikan pengalaman praktis dalam menerapkan konsep Sistem Operasi ke dalam program berbasis Linux dan meningkatkan kemampuan saya dalam bekerja secara kolaboratif menggunakan GitHub.
+Hal yang masih perlu saya pelajari lebih lanjut adalah pengelolaan proses Linux secara lebih mendalam, khususnya mengenai sinkronisasi antarproses, pengelolaan lock file, serta penanganan kondisi ketika proses berhenti secara tidak terduga.
+
+Dengan pengerjaan proyek ini, saya dapat memahami bahwa konsep Sistem Operasi yang dipelajari di perkuliahan dapat diterapkan secara langsung dalam pengembangan sistem berbasis Linux.
+
+### Lampiran
+<img width="817" height="200" alt="image" src="https://github.com/user-attachments/assets/278cfecb-56eb-4834-89b7-769f4d1c79ef" />
+
+Keterangan: Struktur direktori proyek Sistem Antrean Linux yang menunjukkan susunan folder dan berkas utama proyek.
+
+
+
