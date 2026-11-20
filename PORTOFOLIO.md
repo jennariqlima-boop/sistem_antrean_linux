@@ -168,9 +168,7 @@ Lock file digunakan sebagai media pengaturan akses proses. Selain itu, file log 
 ### 7. Kendala dan Penyelesaian
 
 Selama pengerjaan proyek Sistem Antrean Linux, saya mengalami kendala pada perangkat laptop pribadi yang tidak dapat digunakan untuk menjalankan lingkungan Linux dan melakukan pengerjaan proyek dengan baik.
-
 Oleh karena itu, saya menggunakan laptop teman untuk melanjutkan pengerjaan proyek. Dengan menggunakan perangkat tersebut, saya dapat mengakses lingkungan WSL Ubuntu, menjalankan perintah Linux, mengedit Bash Script, melakukan pengujian, serta mengunggah hasil pengerjaan ke repository GitHub kelompok.
-
 Meskipun terdapat kendala pada perangkat pribadi, pengerjaan kontribusi tetap dapat diselesaikan, yaitu implementasi fitur Exclusive Lock pada `scripts/worker.sh`, pengujian positif dan negatif, serta proses commit dan push ke branch `main`.
 
 **Penyelesaian kendala:** Menggunakan laptop teman sebagai perangkat alternatif agar proses pengerjaan proyek dapat tetap dilaksanakan.
@@ -180,20 +178,7 @@ Keterangan: Dokumentasi lingkungan WSL Ubuntu atau proses pengerjaan proyek pada
 ### 8. Refleksi
 
 Melalui pengerjaan proyek ini, saya memperoleh pemahaman dan pengalaman dalam menggunakan Bash Script untuk mengelola proses pada sistem Linux.
-
-Hal yang sudah saya pelajari dan kuasai meliputi:
-
-1. Menggunakan perintah Bash untuk menjalankan dan mengelola proses.
-2. Menggunakan `flock` untuk menerapkan mekanisme Exclusive Lock.
-3. Memahami konsep dasar mutual exclusion dan process synchronization.
-4. Menjalankan proses menggunakan background execution.
-5. Menggunakan PID untuk mengidentifikasi proses.
-6. Menggunakan `trap` untuk menangani proses ketika berakhir.
-7. Melakukan pengujian positif dan negatif.
-8. Menggunakan Git untuk melakukan commit dan push hasil pengerjaan ke repository kelompok.
-
 Hal yang masih perlu saya pelajari lebih lanjut adalah pengelolaan proses Linux secara lebih mendalam, khususnya mengenai sinkronisasi antarproses, pengelolaan lock file, serta penanganan kondisi ketika proses berhenti secara tidak terduga.
-
 Dengan pengerjaan proyek ini, saya dapat memahami bahwa konsep Sistem Operasi yang dipelajari di perkuliahan dapat diterapkan secara langsung dalam pengembangan sistem berbasis Linux.
 
 ### Lampiran
