@@ -14,20 +14,12 @@
 Proyek ini merupakan proyek kelompok yang dikembangkan menggunakan Bash Script pada lingkungan Linux melalui WSL Ubuntu.
 
 - **Repository utama:** https://github.com/kelompok-sistem-antrean-linux/sistem_antrean_linux
-- **Nama seluruh anggota kelompok**:
-  1. Fathimah Asrining Nurcahya Pertiwi - 2510512199
-  2. Jennar Iqlima Rakhman - 2510512176
-  3. Made Dwi Putra - 2510512204
-  4. Aghna Biwalaki Chodori - 2510512177
-  5. Muhammad Haikal - 2510512185
-  6. Muhammad Rijal Akbar - 2510512173
 
 Repository digunakan sebagai tempat penyimpanan source code, dokumentasi, dan bukti pengerjaan proyek secara bersama-sama.
 
 ### 3. Kontribusi Pribadi
 
 Pada proyek Sistem Antrean Linux, saya bertanggung jawab mengerjakan fitur **Exclusive Lock menggunakan perintah `flock` untuk mencegah worker berjalan secara bersamaan**.
-
 Kontribusi yang saya kerjakan meliputi:
 
 1. Menambahkan mekanisme exclusive lock pada file `scripts/worker.sh`.
